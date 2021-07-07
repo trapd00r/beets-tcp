@@ -24,6 +24,8 @@ This plugin takes care of both issues.
 Installation
 ------------
 
+`$ pip3 install titlecase`
+
 Replace all `%title{}` functions with the shiny new one:
 
 `

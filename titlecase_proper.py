@@ -19,6 +19,7 @@
 # This plugin takes care of both issues.
 
 from beets.plugins import BeetsPlugin
+from titlecase import titlecase
 
 class titlecase_proper(BeetsPlugin):
     def __init__(self):
@@ -26,7 +27,8 @@ class titlecase_proper(BeetsPlugin):
         self.template_funcs['titlecase_proper'] = _titlecase_proper
 
 def _titlecase_proper(text):
-   import re
-   return re.sub(r"[A-Za-z]+('[A-Za-z]+)?",
-                    lambda mo: mo.group(0).capitalize(),
-                     text)
+  return titlecase(text)
+#   import re
+#   return re.sub(r"[A-Za-z]+('[A-Za-z]+)?",
+#                    lambda mo: mo.group(0).capitalize(),
+#                     text)
