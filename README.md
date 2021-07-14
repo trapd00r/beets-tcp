@@ -26,7 +26,6 @@ returned as-is:
 
 
 ```bash
-{% highlight bash %}
 $ cd "Dj TCP the Reckless │2021│ So Much Drama in the PHD [CDR, MP3]"
 $ for w in TCP DJ PhD; do echo $w; done >> ~/.beets_titlecase
 $ beet import .
