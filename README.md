@@ -21,17 +21,22 @@ be titlecased:
 
 This plugin takes care of both issues.
 
-Additionally, words can be added to **~/.beets\_titlecase** that will be
-returned as-is:
+Additionally, custom words can be added to the plugin section in
+beets/config.yaml that will be returned as-is:
 
-
-```bash
-$ cd "Dj TCP the Reckless │2021│ So Much Drama in the PHD [CDR, MP3]"
-$ for w in TCP DJ PhD; do echo $w; done >> ~/.beets_titlecase
-$ beet import .
-$ beet ls -a 'so much drama' -f \$path
-DJ TCP the Reckless │2021│ So Much Drama in the PhD [CDR, MP3]
+```yaml
+titlecase_proper:
+  asis: [
+    'PhD',
+    'DJ',
+    'TCP',
+    'YodA',
+  ]
 ```
+
+which can render:
+
+- **DJ Madfist the Invincible TCP Guru │2024│ Got Myself an PhD in the 313 (Deluxe YodA Edition) [MP3]**
 
 
 Installation
@@ -54,15 +59,13 @@ pluginpath: ['/usr/lib/python3.9/site-packages/beetsplug/',
             ]
 ```
 
-Add the plugin to the plugin list:
+Add the plugin to the plugin list and configure it:
 
 ```yaml
 plugins: [
   'titlecase_proper'
 ]
-```
 
-TODO
-----
-Replace the text file in ~/ with inline configuration in config.yaml:
-https://beets.readthedocs.io/en/stable/dev/plugins.html#read-configuration-options
+titlecase_proper:
+  asis: ['foo', 'Bar', 'TCP']
+```
