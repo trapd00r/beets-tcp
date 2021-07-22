@@ -4,7 +4,11 @@ beets-tcp / titlecase-proper
 Adds a template function `%tcp{}` that titlecases
 strings better.
 
+Why?
+----------------------
+
 The beets builtin template function `%title{}` uses `str.capwords()`.
+
 This causes issues with strings that begin with a character that can't
 be titlecased:
 
