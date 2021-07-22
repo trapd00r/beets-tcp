@@ -1,7 +1,7 @@
-beets-titlecase_proper
+beets-tcp / titlecase-proper
 ----------------------
 
-Adds a template function `%titlecase_proper{}` that titlecases
+Adds a template function `%tcp{}` that titlecases
 strings better.
 
 The beets builtin template function `%title{}` uses `str.capwords()`.
@@ -25,7 +25,7 @@ Additionally, custom words can be added to the plugin section in
 beets/config.yaml that will be returned as-is:
 
 ```yaml
-titlecase_proper:
+tcp:
   asis: [
     'PhD',
     'DJ',
@@ -48,14 +48,14 @@ $ pip3 install titlecase
 Replace all `%title{}` functions with the shiny new one:
 
 ```bash
-perl -i.old -pe 's/%title{(\$[A-Za-z_-]+)}/%titlecase_proper{$1}/g' config.yaml
+perl -i.old -pe 's/%title{(\$[A-Za-z_-]+)}/%tcp{$1}/g' config.yaml
 ```
 
 Add this script to the beets pluginpath:
 
 ```yaml
 pluginpath: ['/usr/lib/python3.9/site-packages/beetsplug/',
-             '/home/scp1/dev/beets-titlecase_proper',
+             '/home/scp1/dev/beets-tcp',
             ]
 ```
 
@@ -63,9 +63,9 @@ Add the plugin to the plugin list and configure it:
 
 ```yaml
 plugins: [
-  'titlecase_proper'
+  'tcp'
 ]
 
-titlecase_proper:
+tcp:
   asis: ['foo', 'Bar', 'TCP']
 ```

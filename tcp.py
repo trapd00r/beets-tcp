@@ -1,8 +1,9 @@
 ## Author: Magnus Woldrich, japh@irc.libera.chat
 ##   Date: 2021-07-07 10:07:37
 ## > https://github.com/beetbox/beets/discussions/3998
+## > https://www.japh.se/2021/07/14/a_better_titlecase_function_for_beets.html
 ##
-## adds a template function %titlecase_proper{} that titlecases
+## adds a template function %tcp{} that titlecases
 ## strings better.
 ##
 ## The beets builtin template function %title{} uses str.capwords(). This
@@ -24,17 +25,17 @@ from titlecase     import titlecase
 import os
 
 # error handling, in case there's no config section for
-# titlecase_proper, we should just titlecase as normal
+# tcp, we should just titlecase as normal
 words_to_use_asis = None
 try:
-  words_to_use_asis = config['titlecase_proper']['asis'].get()
+  words_to_use_asis = config['tcp']['asis'].get()
 except:
   words_to_use_asis = None
 
-class titlecase_proper(BeetsPlugin):
+class tcp(BeetsPlugin):
     def __init__(self):
-      super(titlecase_proper, self).__init__()
-      self.template_funcs['titlecase_proper'] = _titlecase_proper
+      super(tcp, self).__init__()
+      self.template_funcs['tcp'] = _tcp
 
 
 def custom_casing(word, **kwargs):
@@ -45,7 +46,7 @@ def custom_casing(word, **kwargs):
             return w
 
 
-def _titlecase_proper(text):
+def _tcp(text):
     if words_to_use_asis is not None:
         real_words = titlecase(text, callback=custom_casing)
     else:
