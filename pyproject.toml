@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "beets-tcp"
+description = "Add a better %title{} template function to beets."
+version = "2025.7.0"
+readme = "README.md"
+authors = [
+  {name = "Magnus Woldrich", email = "m@japh.se"},
+]
+requires-python = ">=3.9"
+license = "MIT"
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Operating System :: OS Independent",
+]
+dependencies = [
+  "titlecase",
+]
+
+[project.urls]
+Repository = "https://github.com/trapd00r/beets-tcp"
+Issues = "https://github.com/trapd00r/beets-tcp/issues"
